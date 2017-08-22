@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-starts',
@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StartsComponent implements OnInit {
 
+  private starts: boolean[];
+
+  @Input()
+  private rating: number = 0;
+
   constructor() { }
 
   ngOnInit() {
+    this.starts = [];
+    for(let i=1;i<=5;i++){
+      this.starts.push(i>this.rating);
+    }
   }
 
 }
